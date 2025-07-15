@@ -1,3 +1,5 @@
+echo "create sites folder";
+mkdir ~/deployments
 echo "create docker network traefik...";
 docker network create traefik;
 echo "create portainer_data volume";
