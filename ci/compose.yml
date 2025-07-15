@@ -1,0 +1,13 @@
+services:
+  webserver:
+    container_name: $SITE
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - DOMAIN
+      - SITE
+    labels:
+      traefik.enable: true
+      traefik.http.routers.$SITE.rule: "Host(`$SITE.$DOMAIN`)"
+      traefik.http.services.$SITE.loadbalancer.server.port: "80"
