@@ -1,0 +1,17 @@
+services:
+  portainer:
+    image: portainer/portainer-ce:lts
+    volumes:
+      - portainer_data:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: always
+    labels:
+      traefik.enable: true
+      traefik.http.routers.portainer.rule: Host(`portainer.${DOMAIN}`)
+      traefik.http.services.portainer.loadbalancer.server.port: 9443
+    networks:
+      traefik:
+
+networks:
+  traefik:
+    external: true

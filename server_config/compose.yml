@@ -1,0 +1,5 @@
+include:
+  - path: registry/compose.yml
+  - path: traefik/compose.yml
+  - path: portainer/compose.yml
+  - path: compose.config.yml
