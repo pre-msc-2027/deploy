@@ -1,5 +1,0 @@
-volumes:
-  portainer_data:
-
-networks:
-  traefik:
