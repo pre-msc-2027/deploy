@@ -1,0 +1,14 @@
+
+services:
+  ci:
+    build: .
+    container_name: ci
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.ci.rule=Host(`ci.local`)"
+      - "traefik.http.routers.ci.entrypoints=web"
+    networks:
+      - traefik
+networks:
+  traefik:
+    external: true
